@@ -1,0 +1,7 @@
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\Mestrado-lucas.exe
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\Mestrado-lucas.dll
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\Mestrado-lucas.deps.json
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\Mestrado-lucas.runtimeconfig.json
+D:\ProjetoMestradoAPI\Mestrado-lucas\Mestrado-lucas\obj\Release\netcoreapp3.1\PubTmp\Out\Mestrado-lucas.pdb
