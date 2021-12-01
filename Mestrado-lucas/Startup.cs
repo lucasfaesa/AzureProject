@@ -27,10 +27,12 @@ namespace Mestrado_lucas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
+            var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
             services.AddDbContext<Mestrado_lucasContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Mestrado_lucasContext")));
+                options.UseSqlite(connection)
+            );
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
