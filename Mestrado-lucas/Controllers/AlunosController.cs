@@ -43,6 +43,21 @@ namespace Mestrado_lucas.Controllers
             return aluno;
         }
 
+        //api/alunos/login 
+        //verificar algum tipo de hashzação das senhas
+        [HttpGet("Login/{loginNome}/{senha}")]
+        public ActionResult<Aluno> LoginAluno(string loginNome, string senha)
+        {
+            var aluno = _context.Aluno.FirstOrDefault(x => x.LoginNome.ToLower() == loginNome.ToLower() && x.Senha == senha);
+
+            if (aluno == null)
+            {
+                return NotFound();
+            }
+
+            return aluno;
+        }
+
         // PUT: api/Alunos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -75,16 +90,29 @@ namespace Mestrado_lucas.Controllers
             return NoContent();
         }
 
+        //Criar um aluno (conta)
         // POST: api/Alunos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Aluno>> PostAluno(Aluno aluno)
         {
+            if(_context.Aluno.Any(x=>x.LoginNome == aluno.LoginNome))
+            {
+                return NotFound();
+            }
             _context.Aluno.Add(aluno);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAluno", new { id = aluno.Id }, aluno);
+        }
+
+        // GET: api/Alunos/CheckLoginName/Lukas123
+        //if return true exists, if false, doesn't
+        [HttpGet("CheckLoginName/{loginNome}")]
+        public bool CheckLoginName(string loginNome)
+        {
+            return _context.Aluno.Any(e => e.LoginNome.ToLower() == loginNome.ToLower());
         }
 
         // DELETE: api/Alunos/5

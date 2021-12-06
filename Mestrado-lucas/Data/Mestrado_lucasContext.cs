@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Mestrado_lucas;
+using Mestrado_lucas.Models;
 
 namespace Mestrado_lucas.Data
 {
@@ -15,5 +16,9 @@ namespace Mestrado_lucas.Data
         }
 
         public DbSet<Mestrado_lucas.Aluno> Aluno { get; set; }
+
+        public DbSet<Mestrado_lucas.Models.Sessao> Sessao { get; set; }
+
+        public DbSet<Mestrado_lucas.Models.Fase> Fase { get; set; }
     }
 }

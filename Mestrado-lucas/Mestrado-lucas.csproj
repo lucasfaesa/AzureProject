@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211206003220_corrections.cs" />
+    <Compile Remove="Migrations\20211206003220_corrections.Designer.cs" />
+    <Compile Remove="Migrations\20211206003957_tet.cs" />
+    <Compile Remove="Migrations\20211206003957_tet.Designer.cs" />
+    <Compile Remove="Migrations\20211206004438_test.cs" />
+    <Compile Remove="Migrations\20211206004438_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
