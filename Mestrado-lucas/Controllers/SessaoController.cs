@@ -25,7 +25,7 @@ namespace Mestrado_lucas.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sessao>>> GetSessao()
         {
-            return await _context.Sessao.ToListAsync();
+            return await _context.Sessao.Include(s=>s.Aluno).Include(x=>x.Fase).ToListAsync();
         }
 
         // GET: api/Sessao/5

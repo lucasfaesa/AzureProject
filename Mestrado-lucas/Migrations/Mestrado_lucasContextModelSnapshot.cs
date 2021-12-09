@@ -65,7 +65,7 @@ namespace Mestrado_lucas.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AlunoId")
+                    b.Property<int>("AlunoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("Concluida")
@@ -77,7 +77,7 @@ namespace Mestrado_lucas.Migrations
                     b.Property<DateTime>("DtUltimaJogada")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("FaseId")
+                    b.Property<int>("FaseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("Pontuacao")
@@ -99,11 +99,15 @@ namespace Mestrado_lucas.Migrations
                 {
                     b.HasOne("Mestrado_lucas.Aluno", "Aluno")
                         .WithMany()
-                        .HasForeignKey("AlunoId");
+                        .HasForeignKey("AlunoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Mestrado_lucas.Models.Fase", "Fase")
                         .WithMany()
-                        .HasForeignKey("FaseId");
+                        .HasForeignKey("FaseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

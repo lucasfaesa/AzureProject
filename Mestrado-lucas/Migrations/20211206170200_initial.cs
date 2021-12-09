@@ -44,8 +44,8 @@ namespace Mestrado_lucas.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AlunoId = table.Column<int>(nullable: true),
-                    FaseId = table.Column<int>(nullable: true),
+                    AlunoId = table.Column<int>(nullable: false),
+                    FaseId = table.Column<int>(nullable: false),
                     Concluida = table.Column<int>(nullable: true),
                     Pontuacao = table.Column<int>(nullable: true),
                     DtConclusao = table.Column<DateTime>(nullable: true),
@@ -60,13 +60,13 @@ namespace Mestrado_lucas.Migrations
                         column: x => x.AlunoId,
                         principalTable: "Aluno",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Sessao_Fase_FaseId",
                         column: x => x.FaseId,
                         principalTable: "Fase",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

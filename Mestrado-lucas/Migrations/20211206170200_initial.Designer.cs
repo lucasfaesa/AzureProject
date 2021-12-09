@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mestrado_lucas.Migrations
 {
     [DbContext(typeof(Mestrado_lucasContext))]
-    [Migration("20211206024111_initial")]
+    [Migration("20211206170200_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace Mestrado_lucas.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AlunoId")
+                    b.Property<int>("AlunoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("Concluida")
@@ -79,7 +79,7 @@ namespace Mestrado_lucas.Migrations
                     b.Property<DateTime>("DtUltimaJogada")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("FaseId")
+                    b.Property<int>("FaseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("Pontuacao")
@@ -101,11 +101,15 @@ namespace Mestrado_lucas.Migrations
                 {
                     b.HasOne("Mestrado_lucas.Aluno", "Aluno")
                         .WithMany()
-                        .HasForeignKey("AlunoId");
+                        .HasForeignKey("AlunoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Mestrado_lucas.Models.Fase", "Fase")
                         .WithMany()
-                        .HasForeignKey("FaseId");
+                        .HasForeignKey("FaseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
