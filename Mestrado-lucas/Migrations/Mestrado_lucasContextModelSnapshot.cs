@@ -68,22 +68,22 @@ namespace Mestrado_lucas.Migrations
                     b.Property<int>("AlunoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Concluida")
+                    b.Property<int>("Concluida")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("DtConclusao")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DtUltimaJogada")
+                    b.Property<DateTime>("DtJogada")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("FaseId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Pontuacao")
+                    b.Property<int>("Pontuacao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float?>("TempoDecorrido")
+                    b.Property<float>("TempoDecorrido")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");

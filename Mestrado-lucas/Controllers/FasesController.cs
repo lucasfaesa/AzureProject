@@ -12,13 +12,39 @@ namespace Mestrado_lucas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FaseController : ControllerBase
+    public class FasesController : ControllerBase
     {
         private readonly Mestrado_lucasContext _context;
 
-        public FaseController(Mestrado_lucasContext context)
+        public FasesController(Mestrado_lucasContext context)
         {
             _context = context;
+        }
+
+        [HttpGet("babish")]
+        public async Task<ActionResult<Fase>> Fill()
+        {
+            string[] nome = { "Encontre os números", "Procure o sujeito", "Arranje a frase", "Encontre o valor de x",
+                               "Resolva a equação de segundo grau", "Encontre os números"};
+
+            string[] desc = { " Jogador deve encontrar os números primos no tempo permitido", 
+                                "Jogador deve procurar o sujeito da frase com o max de 3 tentativas",
+                                "Jogador deve corrigir a frase no tempo permitido",
+                                "Jogador deve encontrar o valor de X no permitido",
+                                "Jogador deve resolver a equação de segundo grau com o max de 3 chances",
+                                "Jogador deve encontrar os números primos no tempo permitido"};
+
+            for(int i=0; i<nome.Length; i++)
+            {
+                _context.Fase.Add(new Fase
+                {
+                    Nome = nome[i],
+                    Descricao = desc[i]
+                });
+                
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
         // GET: api/Fase

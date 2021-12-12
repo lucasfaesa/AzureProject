@@ -22,6 +22,31 @@ namespace Mestrado_lucas.Controllers
             _context = context;
         }
 
+        [HttpGet("babish")]
+        public async Task<ActionResult<Aluno>> Fill()
+        {
+            string[] nome = { "Lucas", "Joao", "Maria", "Paula"};
+            string[] login = { "Luke12", "Joo44", "Mar5", "PaulaRanger222" };
+            string[] senha = { "abc123", "algo23232", "something22", "chokito"};
+            DateTime[] dataCriacao = { new DateTime(2021, 12, 11), new DateTime(2021, 11, 30), new DateTime(2021, 12, 1), new DateTime(2021, 12, 5) };
+            DateTime[] dataULogin = { new DateTime(2021, 12, 11), new DateTime(2021, 12, 9), new DateTime(2021, 12, 3), new DateTime(2021, 12, 10) };
+
+            for (int i = 0; i < nome.Length; i++)
+            {
+                _context.Aluno.Add(new Aluno
+                {
+                    Nome = nome[i],
+                    LoginNome = login[i],
+                    Senha = senha[i],
+                    DtCriacao = dataCriacao[i],
+                    DtUltimoLogin = dataULogin[i]
+                });
+
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
         // GET: api/Alunos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Aluno>>> GetAluno()

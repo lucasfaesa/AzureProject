@@ -46,11 +46,11 @@ namespace Mestrado_lucas.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     AlunoId = table.Column<int>(nullable: false),
                     FaseId = table.Column<int>(nullable: false),
-                    Concluida = table.Column<int>(nullable: true),
-                    Pontuacao = table.Column<int>(nullable: true),
+                    Concluida = table.Column<int>(nullable: false),
+                    Pontuacao = table.Column<int>(nullable: false),
                     DtConclusao = table.Column<DateTime>(nullable: true),
-                    TempoDecorrido = table.Column<float>(nullable: true),
-                    DtUltimaJogada = table.Column<DateTime>(nullable: false)
+                    TempoDecorrido = table.Column<float>(nullable: false),
+                    DtJogada = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
